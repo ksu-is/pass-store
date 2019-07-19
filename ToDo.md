@@ -1,5 +1,6 @@
 ### (x) indicates task done
 
+
 <ol>
 <li>Download GitHub Desktop (x)</li>
 <li>Join ksu-is GitHub (x)</li>
