@@ -1,22 +1,30 @@
 #import python random module
 #to generate random string
-import random
+from random import sample
 
 #by using a large number of characters
 #we can create a much harder password
 strchars = 'abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_*+=!@#$%^&'
-len = int(input('Desired Password Length: '))
-nums = int(input('Number of Passwords to Generate: '))
-pwdlen = int(len)
-pwdnums = int(nums)
-"""
-for pn in range(pwdnums):
-    password = ''
-    for pl in range(pwdlen):
-        password += random.choice(chars)
-    print(password)
-"""
-def pwdgen(pwdnums = 1, pwdlen = 8, chars = strchars):
+
+def pwdgen(pwdlen = 8, pwdnums = 1, chars = strchars):
 #We will generate passwords with either parameters set by the user input
 #or with default settings
+    if pwdnums == 1:
+        return ''.join(sample(chars, pwdlen))
     
+    passwords = []
+    while pwdnums > 0:
+        passwords.append(''.join(sample(chars, pwdlen)))
+        pwdnums -= 1
+
+    return passwords
+
+plen = input('Desired Password Length: ')
+pnums = input('Number of Passwords to Generate: ')
+pwdlen = int(plen)
+pwdnums = int(pnums)
+
+passwords = pwdgen(pwdlen, pwdnums)
+
+for i in range(len(passwords)):
+    print(passwords[i])
