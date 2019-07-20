@@ -1,3 +1,6 @@
+#Pass-stor: created by Lee Baldwin
+
+
 #import python random module
 #to generate random string
 from random import sample
