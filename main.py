@@ -29,11 +29,14 @@ pwdnums = int(pnums)
 
 passwords = pwdgen(pwdlen, pwdnums)
 
-#file = open("pass_stor.txt", "w")
+file = open("pass_stor.txt", "a+")
 
 for i in range(len(passwords)):
     print(passwords[i])
 
-#file.close()
+for i in range(len(passwords)):
+    file.write(passwords[i] + "\n")
 
-#print("File closed")
+file.close()
+
+print("File closed")
